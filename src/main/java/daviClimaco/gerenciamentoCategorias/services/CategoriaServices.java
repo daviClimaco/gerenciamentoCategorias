@@ -14,8 +14,8 @@ public class CategoriaServices {
         this.categoriaRepository = categoriaRepository;
     }
 
-    public void salvar(Categoria categoria){
-        categoriaRepository.save(categoria);
+    public Categoria salvar(Categoria categoria){
+        return categoriaRepository.save(categoria);
     }
 
     public void deletar(Long id) {
@@ -28,6 +28,11 @@ public class CategoriaServices {
 
     public List<Categoria> buscarTodas(){
         return categoriaRepository.findAll();
+    }
+
+    public Categoria atualizar(Long id, Categoria categoria){
+        categoria.setId(id);
+        return categoriaRepository.save(categoria);
     }
 
 }
